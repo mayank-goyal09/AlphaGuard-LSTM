@@ -1,0 +1,9 @@
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Local model binaries
+saved_models/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/

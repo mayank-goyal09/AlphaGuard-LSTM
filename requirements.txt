@@ -1,0 +1,11 @@
+streamlit
+yfinance
+pandas_ta
+arch
+tensorflow
+numpy
+pandas
+scikit-learn
+plotly
+scipy
+pyyaml
