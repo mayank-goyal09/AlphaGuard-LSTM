@@ -1,3 +1,4 @@
+# Redwood contribution: Main Streamlit dashboard application for portfolio risk cockpit
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -5,6 +6,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime, timedelta
 import os
+import yfinance as yf
 
 # Import custom modules
 from data_pipeline import load_config, fetch_portfolio_data, prepare_pipeline_for_ticker
