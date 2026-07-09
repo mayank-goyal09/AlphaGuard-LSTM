@@ -1,3 +1,4 @@
+# Redwood contribution: Market data download and feature extraction pipeline
 import yfinance as yf
 import pandas as pd
 import numpy as np
