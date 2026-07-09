@@ -1,3 +1,4 @@
+# Redwood contribution: Volatility targeting backtesting simulation engine
 import numpy as np
 import pandas as pd
 
