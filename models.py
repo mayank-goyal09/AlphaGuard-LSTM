@@ -1,3 +1,4 @@
+# Redwood contribution: VolatilityPredictor model abstraction supporting LSTM and Random Forest regressor models
 import os
 import numpy as np
 import pandas as pd
