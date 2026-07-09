@@ -371,12 +371,23 @@ else:
             if live_news:
                 cols = st.columns(min(3, len(live_news)))
                 for i, news_item in enumerate(live_news[:3]):
+                    content = news_item.get('content', {})
+                    title = content.get('title', news_item.get('title', ''))
+                    publisher = content.get('provider', {}).get('displayName', news_item.get('publisher', 'News Source'))
+                    
+                    # Resolve URL from canonicalUrl or clickThroughUrl, falling back to top-level link
+                    link = '#'
+                    if isinstance(content, dict):
+                        link = content.get('canonicalUrl', {}).get('url', content.get('clickThroughUrl', {}).get('url', news_item.get('link', '#')))
+                    else:
+                        link = news_item.get('link', '#')
+                        
                     with cols[i]:
                         st.markdown(f"""
                         <div class="metric-card" style="height: 150px; overflow: hidden;">
-                            <strong style="color: #38bdf8;">{news_item.get('publisher', 'News Source')}</strong><br/>
-                            <p style="font-size: 13px; margin-top: 5px;">{news_item.get('title', '')}</p>
-                            <a href="{news_item.get('link', '#')}" target="_blank" style="font-size: 12px; color: #10b981;">Read Article →</a>
+                        <strong style="color: #38bdf8;">{publisher}</strong><br/>
+                            <p style="font-size: 13px; margin-top: 5px;">{title}</p>
+                            <a href="{link}" target="_blank" style="font-size: 12px; color: #10b981;">Read Article →</a>
                         </div>
                         """, unsafe_allow_html=True)
             else:
