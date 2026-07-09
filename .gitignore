@@ -1,3 +1,4 @@
+# Redwood contribution: Ignored files for Python, model checkpoints, and local cache
 # Python bytecode
 __pycache__/
 *.pyc
