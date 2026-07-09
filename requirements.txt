@@ -1,3 +1,4 @@
+# Redwood contribution: Package requirements for setting up the AlphaGuard-LSTM cockpit
 streamlit
 yfinance
 pandas_ta
