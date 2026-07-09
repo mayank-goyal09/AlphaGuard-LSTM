@@ -116,8 +116,15 @@ def calculate_news_sentiment(ticker, dates):
             recent_sentiment = 0.0
             count = 0
             for item in news[:5]:
-                content = item.get('content', {})
-                title = content.get('title', item.get('title', '')).lower()
+                title = ''
+                if isinstance(item, dict):
+                    content = item.get('content', {})
+                    if isinstance(content, dict):
+                        title = content.get('title', '')
+                    if not title:
+                        title = item.get('title', '')
+                
+                title = title.lower() if title else ''
                 words = title.split()
                 pos_count = sum(1 for w in words if w in pos_words)
                 neg_count = sum(1 for w in words if w in neg_words)

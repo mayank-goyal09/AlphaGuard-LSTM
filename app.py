@@ -371,15 +371,30 @@ else:
             if live_news:
                 cols = st.columns(min(3, len(live_news)))
                 for i, news_item in enumerate(live_news[:3]):
-                    content = news_item.get('content', {})
-                    title = content.get('title', news_item.get('title', ''))
-                    publisher = content.get('provider', {}).get('displayName', news_item.get('publisher', 'News Source'))
-                    
-                    # Resolve URL from canonicalUrl or clickThroughUrl, falling back to top-level link
+                    content = news_item.get('content', {}) if isinstance(news_item, dict) else {}
+                    title = ''
+                    publisher = 'News Source'
                     link = '#'
+                    
                     if isinstance(content, dict):
-                        link = content.get('canonicalUrl', {}).get('url', content.get('clickThroughUrl', {}).get('url', news_item.get('link', '#')))
-                    else:
+                        title = content.get('title', '')
+                        provider = content.get('provider', {})
+                        if isinstance(provider, dict):
+                            publisher = provider.get('displayName', 'News Source')
+                        
+                        canonical = content.get('canonicalUrl')
+                        click_through = content.get('clickThroughUrl')
+                        
+                        if isinstance(canonical, dict) and canonical.get('url'):
+                            link = canonical.get('url')
+                        elif isinstance(click_through, dict) and click_through.get('url'):
+                            link = click_through.get('url')
+                    
+                    if not title and isinstance(news_item, dict):
+                        title = news_item.get('title', '')
+                    if publisher == 'News Source' and isinstance(news_item, dict):
+                        publisher = news_item.get('publisher', 'News Source')
+                    if link == '#' and isinstance(news_item, dict):
                         link = news_item.get('link', '#')
                         
                     with cols[i]:
