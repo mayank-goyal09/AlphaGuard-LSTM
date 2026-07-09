@@ -1,3 +1,4 @@
+# Redwood contribution: Portfolio returns calculation and VaR/ES risk mathematics engine
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
