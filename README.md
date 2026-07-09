@@ -1,3 +1,4 @@
+<!-- Redwood contribution: Project README documentation detailing the purpose, setup, and features of AlphaGuard -->
 # 🛡️ AlphaGuard: Portfolio Risk Cockpit & Volatility Predictor
 
 AlphaGuard is an advanced, production-grade quantitative risk management system and interactive financial analytics cockpit. It upgrades simple single-asset forecasting models into a multi-asset portfolio risk intelligence platform powered by **GARCH statistical modeling, Deep Learning (LSTM), Monte Carlo simulations, and news sentiment**.
