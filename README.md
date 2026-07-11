@@ -17,7 +17,12 @@
 ### **Where Quantitative Finance Meets Deep Learning.**
 ### **Transform historical market data into predicted portfolio risk budgets. Predict tail-risk breaches, run macro stress tests, and backtest volatility targeting strategies in real-time.** 📈🛡️
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://alphaguard-lstm-project.streamlit.app/)
+
+**Live Application:** [alphaguard-lstm-project.streamlit.app](https://alphaguard-lstm-project.streamlit.app/)
+
 </div>
+
 
 ---
 
